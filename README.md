@@ -3,7 +3,7 @@
 Yleisiä linkkejä:
 
 * [https://www.hniemima.users.cs.helsinki.fi/muistilista](https://www.hniemima.users.cs.helsinki.fi/muistilista)
-* [Linkki dokumentaatiooni](https://www.github.com)
+* [https://github.com/heltsu/Tsoha-Bootstrap/tree/master/doc](https://www.github.com)
 
 ## Työn aihe
 
