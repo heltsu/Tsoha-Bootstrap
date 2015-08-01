@@ -2,11 +2,11 @@
 
 Yleisiä linkkejä:
 
-* [Linkki sovellukseeni](https://www.cs.helsinki.fi)
+* [https://www.hniemima.users.cs.helsinki.fi/muistilista](https://www.hniemima.users.cs.helsinki.fi/muistilista)
 * [Linkki dokumentaatiooni](https://www.github.com)
 
 ## Työn aihe
 
-Laita tähän aihekuvaus tai [linkki valmiiseen aiheeseen](http://advancedkittenry.github.io/suunnittelu_ja_tyoymparisto/aiheet/Pokemon-kanta.html) 
+Laita tähän aihekuvaus tai [http://advancedkittenry.github.io/suunnittelu_ja_tyoymparisto/aiheet/Muistilista.html](http://advancedkittenry.github.io/suunnittelu_ja_tyoymparisto/aiheet/Muistilista.html) 
 
-xxx
+
