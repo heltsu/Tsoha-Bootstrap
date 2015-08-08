@@ -1,6 +1,7 @@
 <?php
 
-  class HelloWorldController extends BaseController{
+require 'app/models/askare.php';  
+class HelloWorldController extends BaseController{
 
     public static function index(){
       // make-metodi renderöi app/views-kansiossa sijaitsevia tiedostoja
@@ -12,6 +13,11 @@
       // Testaa koodiasi täällä
       //echo 'Hello World!';
         View::make("helloworld.html");
+        $askare = Askare::kaikki();
+        $harkkatyö = Askare::eka(1);
+        
+        Kint::dump($askare);
+        Kint::dump($harkkatyö);
     }
     public static function askareet_esittely(){
         View::make('suunnitelmat/askareet_esittely.html');
