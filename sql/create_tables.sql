@@ -1,20 +1,19 @@
 -- Lisää CREATE TABLE lauseet tähän tiedostoon
-CREATE TABLE Member(
+CREATE TABLE Perheenjäsen(
 id SERIAL PRIMARY KEY,
-name varchar(20) NOT NULL,
-password varchar(16) NOT NULL
+nimi varchar(20) NOT NULL,
+salasana varchar(16) NOT NULL
 );
 
-CREATE TABLE Job(
+CREATE TABLE Askare(
 id SERIAL PRIMARY KEY,
-member_id INTEGER REFERENCES Member(id),
-name varchar NOT NULL,
-priority varchar(2) NOT NULL,
-added DATE,
-done DATE
+perheenjäsen_id INTEGER REFERENCES Perheenjäsen(id),
+nimi varchar NOT NULL,
+tärkeys varchar(2) NOT NULL,
+lisätty DATE,
+valmis DATE
 );
 
-CREATE TABLE Category(
-id SERIAL PRIMARY KEY,
-name varchar(20) NOT NULL
+CREATE TABLE Luokka(
+nimi varchar(20) NOT NULL 
 );
