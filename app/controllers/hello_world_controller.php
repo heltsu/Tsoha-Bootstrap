@@ -1,6 +1,6 @@
 <?php
 
-require 'app/models/askare.php';  
+//require 'app/models/askare.php';  
 class HelloWorldController extends BaseController{
 
     public static function index(){

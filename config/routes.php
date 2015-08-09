@@ -1,19 +1,19 @@
 <?php
 
 $routes->get('/', function() {
-    HelloWorldController::index();
+    AskareController::index();
 });
 
 $routes->get('/hiekkalaatikko', function() {
     HelloWorldController::sandbox();
 });
 
-$routes->get('/askareet', function() {
-    HelloWorldController::askareet_list();
+$routes->get('/askare', function() {
+    AskareController::index();
 });
 
-$routes->get('/askareet/1', function(){
-    HelloWorldController::askareet_esittely();
+$routes->get('/askare/:id', function($id){
+    AskareController::show($id);
 });
 
 $routes->get('/askareet/2', function(){

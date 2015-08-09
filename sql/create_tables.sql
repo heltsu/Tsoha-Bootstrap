@@ -7,11 +7,10 @@ salasana varchar(16) NOT NULL
 
 CREATE TABLE Askare(
 id SERIAL PRIMARY KEY,
-perheenjäsen_id INTEGER REFERENCES Perheenjäsen(id),
-nimi varchar NOT NULL,
-tärkeys varchar(2) NOT NULL,
-lisätty DATE,
-valmis DATE
+nimi varchar(30) NOT NULL,
+tarkeys varchar(2) NOT NULL,
+lisatty DATE,
+valmis DATE 
 );
 
 CREATE TABLE Luokka(
