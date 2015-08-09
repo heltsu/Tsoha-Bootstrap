@@ -13,8 +13,8 @@ class HelloWorldController extends BaseController{
       // Testaa koodiasi täällä
       //echo 'Hello World!';
         View::make("helloworld.html");
-        $askare = Askare::kaikki();
-        $harkkatyö = Askare::eka(1);
+        $askare = Askare::all();
+        $harkkatyö = Askare::find(1);
         
         Kint::dump($askare);
         Kint::dump($harkkatyö);
