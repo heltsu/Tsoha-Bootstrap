@@ -1,5 +1,6 @@
 <?php
 
+//require 'app/models/askare.php';
 class AskareController extends BaseController{
     
     public static function index(){

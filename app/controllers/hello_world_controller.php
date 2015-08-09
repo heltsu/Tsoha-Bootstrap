@@ -14,24 +14,24 @@ class HelloWorldController extends BaseController{
       //echo 'Hello World!';
         View::make("helloworld.html");
         $askare = Askare::all();
-        $harkkatyö = Askare::find(1);
+        $harkkatyo = Askare::find(1);
         
         Kint::dump($askare);
-        Kint::dump($harkkatyö);
+        Kint::dump($harkkatyo);
     }
     public static function askareet_esittely(){
-        View::make('suunnitelmat/askareet_esittely.html');
+        View::make('suunnitelmat/askare_esittely.html');
     }
     
     public static function askareet_list(){
-        View::make('suunnitelmat/askareet_list.html');
+        View::make('suunnitelmat/askare_list.html');
     }
     
     public static function askareet_login(){
-        View::make('suunnitelmat/askareet_login.html');
+        View::make('suunnitelmat/askare_login.html');
     }
     
     public static function askareet_muokkaus(){
-        View::make('suunnitelmat/askareet_muokkaus.html');
+        View::make('suunnitelmat/askare_muokkaus.html');
     }
   }
