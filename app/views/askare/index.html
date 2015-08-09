@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Muistilista</h1>
+
+<p> 
+    <a href="{{base_path}}/askare/new" class="btn btn-default">Lisää askare</a>
+</p>
+
+<table class="table table-condensed">
+    <thead>
+        <tr>
+            <th>Askare</th>
+            <th>Tärkeys</th>
+            <th>Lisätty</th>
+            <th>Valmis</th>
+        </tr>
+    </thead>
+    
+    <tbody>
+        {% for askare in askareet %}
+        <tr>
+            <td><a href="{{base_path}}/askare/{{askare.id}}">{{askare.nimi}}</a></td>
+            
+            <td><a href="{{askare.tarkeys}}">{{askare.tarkeys}}</a></td>
+            <td>{{askare.lisatty}}</td>
+            <td>{{askare.valmis}}</td>
+            <td><a class='btn btn-default btn-sm btn-info' href='{{base_path}}/askare/{{askare.id}}/edit'>Muokkaa</a></td>          
+        </tr>
+  {%endfor %} 
+    </tbody>
+</table>
+    {% endblock%}
