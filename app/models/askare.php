@@ -3,7 +3,7 @@
 class Askare extends BaseModel {
 
     //Attribuutit
-    public $id, $nimi, $tarkeys, $lisatty, $valmis;
+    public $id, $perheenjasen_id, $nimi, $tarkeys, $lisatty, $valmis;
 
     //Konstruktori
     public function __construct($attributes) {
@@ -18,6 +18,7 @@ class Askare extends BaseModel {
         foreach ($rows as $row) {
             $askareet[] = new Askare(array(
                 'id' => $row['id'],
+                'perheenjasen_id'=> $row['perheenjasen_id'],
                 'nimi' => $row['nimi'],
                 'tarkeys' => $row['tarkeys'],
                 'lisatty' => $row['lisatty'],

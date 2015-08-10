@@ -12,7 +12,7 @@ class HelloWorldController extends BaseController{
     public static function sandbox(){
       // Testaa koodiasi täällä
       //echo 'Hello World!';
-        View::make("helloworld.html");
+      //  View::make("helloworld.html");
         $askare = Askare::all();
         $harkkatyo = Askare::find(1);
         
