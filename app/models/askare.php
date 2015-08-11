@@ -49,12 +49,12 @@ class Askare extends BaseModel {
     
     public function save(){
         $query = DB::connection()->prepare
-                ('INSERT INTO Askare (nimi, tarkeys, lisatty, valmis)VALUES(:nimi, :tarkeys, :lisatty, :valmis)RETURNING id');
+                ('INSERT INTO Askare (nimi, tarkeys, lisatty, valmis)VALUES(:nimi, :tarkeys, NOW(), :valmis)RETURNING id');
         
         $query->execute(array(
             'nimi'=> $this->nimi,
             'tarkeys'=> $this->tarkeys,
-            'lisatty'=>$this->lisatty,
+          //  'lisatty'=>$this->lisatty,
             'valmis'=>$this->valmis
         ));
         $row = $query->fetch();

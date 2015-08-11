@@ -1,16 +1,25 @@
 {% extends "base.html" %}
 {% block content %}
-<h1>{{askare.nimi}}</h1>
+<div class="alert alert-success">
+  {{message}}
+</div>
+<h2>{{askare.nimi}}</h2>
 
 <p>
     <a href="#" class="btn btn-default">Muokkaa</a>
     <button class="btn btn-danger">Poista</button>
 </p>
 
-<h2>Muuta</h2>
+<h2>Askareen tiedot</h2>
 
-<ol>
-    <li></li>
-</ol>
+<h5>Askareen tärkeys: </h5>
+<h6>{{askare.tarkeys}}</h6>
+
+<h5>Askareen oltava valmiina:</h5>
+<h6>{{askare.valmis}}</h6>
+
+<h5>Askare lisätty:</h5>
+<h6>{{askare.lisatty}}</h6>
+
 <br>
 {% endblock %}

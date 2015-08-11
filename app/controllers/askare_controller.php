@@ -23,15 +23,14 @@ class AskareController extends BaseController {
         $askare = new Askare(array(
             'nimi' => $params['nimi'],
             'tarkeys' => $params['tarkeys'],
-            'lisatty' => $params['lisatty'],
-            'valmis' => $params['valmis']
+            'valmis' => $params['valmis']    
                 ));
 
     //    Kint::dump($params);
         
         $askare->save();
 
-     //   Redirect::to('/askare/' . $askare->id, array('message' => 'Askare lisätty'));
+       Redirect::to('/askare/' . $askare->id, array('message' => 'Askare lisätty'));
     }
 
 }
