@@ -4,8 +4,8 @@ class Luokka extends BaseModel {
 
     public $id, $nimi;
 
-    public function _construct($attributes) {
-        parent::_construct($attributes);
+    public function __construct($attributes) {
+        parent::__construct($attributes);
     }
 
     public static function save($nimi) {

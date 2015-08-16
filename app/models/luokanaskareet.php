@@ -4,8 +4,8 @@ class LuokanAskareet extends BaseModel {
 
     public $askare_id, $luokka_id;
 
-    public function _construct($attributes) {
-        parent::_construct($attributes);
+    public function __construct($attributes) {
+        parent::__construct($attributes);
     }
 
     public static function delete($askare_id) {

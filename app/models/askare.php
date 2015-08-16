@@ -93,13 +93,13 @@ class Askare extends BaseModel {
     public function validate_nimi(){
         $errors = array();
         if ($this->nimi == '' || $this->nimi == null) {
-            $errors[] = 'Nimi ei saa olla tyhjä!';
+            $errors[] = 'Askare puuttuu!';
         }
         if (strlen($this->nimi) < 3) {
-            $errors[] = 'Nimen pituuden pitää olla vähintään kolme merkkiä!';
+            $errors[] = 'Askareen nimen pituuden pitää olla vähintään kolme merkkiä!';
         }
         if (strlen($this->nimi) > 20){
-            $errors[] = 'Nimen pituus oltava alle 20 merkkiä!';
+            $errors[] = 'Askareen nimen pituuden on oltava alle 20 merkkiä!';
         }
         return $errors;
     }
@@ -107,20 +107,20 @@ class Askare extends BaseModel {
     public function validate_tarkeys(){
         $errors = array();
         if($this->tarkeys == '' || $this->tarkeys == null){
-            $errors[] = 'Askareelta puuttuu tärkeysaste!';
+            $errors[] = 'Askareen tärkeyden tulee olla numero välillä 1-5!';
         }
         if(!is_numeric($this->tarkeys)){
-            $errors[]='Tärkeysasteen tulee olla numero!';
+            $errors[]='Askareen tärkeyden tulee olla numero!';
         }
         if(is_numeric($this->tarkeys)&&($this->tarkeys < 1 || $this->tarkeys > 5)){
-            $errors[]='Tärkeysasteen tulee olla välillä 1-5';
+            $errors[]='Askareen tärkeyden tulee olla välillä 1-5!';
         }
         return $errors;
     }
     
     public function validate_muuta() {
         $errors = array();
-        if($this->muuta =='' ||$this->muuta == null){
+        if ($this->muuta == '' || $this->muuta == null) {
             $errors[] = 'Askareen lisätieto ei saa olla tyhjä!';
         }
         if(strlen($this->muuta)>1000){

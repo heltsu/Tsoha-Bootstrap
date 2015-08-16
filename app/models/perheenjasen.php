@@ -4,7 +4,7 @@ class PerheenJasen extends BaseModel {
 
     public $id, $nimi, $salasana;
 
-    public function _construct($attributes) {
+    public function __construct($attributes) {
         parent::__construct($attributes);
     }
 
