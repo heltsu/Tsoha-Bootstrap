@@ -10,9 +10,10 @@ id SERIAL PRIMARY KEY,
 perheenjasen_id integer, 
 FOREIGN KEY (perheenjasen_id) REFERENCES Perheenjasen (id),
 nimi varchar(30) NOT NULL,
-tarkeys varchar(2) NOT NULL,
+tarkeys integer NOT NULL,
 lisatty DATE,
-valmis DATE 
+valmis DATE,
+muuta varchar(1000)
 );
 
 CREATE TABLE Luokka(

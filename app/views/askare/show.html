@@ -1,25 +1,31 @@
 {% extends "base.html" %}
 {% block content %}
+
+{%if message %}
 <div class="alert alert-success">
-  {{message}}
+    {{message}}
 </div>
+{% endif %}
+
+{% for askare in askareet 
 <h2>{{askare.nimi}}</h2>
 
 <p>
-    <a href="#" class="btn btn-default">Muokkaa</a>
-    <button class="btn btn-danger">Poista</button>
+<form method="post" action="{{base_path}}/askare/{{askare.id}}/destroy" style="display: inline-block;">
+    <button type="submit" class="btn btn-danger">Poista</button>
+</form>
+<a href="{{base_path}}/askare/{{askare.id}}/muokkaa" class="btn btn-default">Muokkaa</a>
 </p>
 
-<h2>Askareen tiedot</h2>
+<ul>
+    <li><strong>Tärkeys:</strong> {{askare.tarkeys}}</li>
+    <li><strong>Lisätty:</strong> {{askare.lisatty}}</li>
+    <li><strong>Valmis: </strong> {{askare.valmis}}</li>
+</ul>
 
-<h5>Askareen tärkeys: </h5>
-<h6>{{askare.tarkeys}}</h6>
+<p>
+    {{askare.muuta}}
+</p>
 
-<h5>Askareen oltava valmiina:</h5>
-<h6>{{askare.valmis}}</h6>
-
-<h5>Askare lisätty:</h5>
-<h6>{{askare.lisatty}}</h6>
-
-<br>
+{% endfor %}
 {% endblock %}

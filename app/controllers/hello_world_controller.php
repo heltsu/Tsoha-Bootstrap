@@ -10,15 +10,15 @@ class HelloWorldController extends BaseController{
     }
 
     public static function sandbox(){
-      // Testaa koodiasi täällä
-      //echo 'Hello World!';
-      //  View::make("helloworld.html");
-        $askare = Askare::all();
-        $harkkatyo = Askare::find(1);
+        $soita = new Askare(array(
+                'nimi' => 'nimi',
+            'tarkeys' => '6',
+            ));
+        $errors = $soita->errors();
         
-        Kint::dump($askare);
-        Kint::dump($harkkatyo);
+        Kint::dump($errors);
     }
+    
     public static function askareet_esittely(){
         View::make('suunnitelmat/askare_esittely.html');
     }

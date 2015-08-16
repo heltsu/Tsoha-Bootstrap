@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-<h1>Muistilista</h1>
+<h1>{{user_logged_in.nimi}} muistilista</h1>
 
 <p> 
     <a href="{{base_path}}/askare/new" class="btn btn-default">Lisää askare</a>
@@ -21,12 +21,12 @@
         <tr>
             <td><a href="{{base_path}}/askare/{{askare.id}}">{{askare.nimi}}</a></td>
 
-            <td><a href="{{askare.tarkeys}}">{{askare.tarkeys}}</a></td>
+            <td>{{askare.tarkeys}}</td>
             <td>{{askare.lisatty}}</td>
             <td>{{askare.valmis}}</td>
-            <td><a class='btn btn-default btn-sm btn-info' href='{{base_path}}/askare/{{askare.id}}/edit'>Muokkaa</a></td>          
-</tr>
-{%endfor %} 
-</tbody>
+            <td><a class="btn btn-default btn-sm" href='{{base_path}}/askare/{{askare.id}}/edit'>Muokkaa</a></td>          
+        </tr>
+        {% endfor %} 
+    </tbody>
 </table>
 {% endblock%}
