@@ -20,7 +20,7 @@ class Luokka extends BaseModel {
         $query->execute(array('nimi' => $this->nimi, 'id' => $this->id));
     }
 
-    public static function findByName($id) {
+    public static function findByName($nimi) {
         $query = DB::connection()->prepare('SELECT * FROM Luokka WHERE nimi = :nimi');
         $query->execute(array('nimi' => $nimi));
         $row = $query->fetch();

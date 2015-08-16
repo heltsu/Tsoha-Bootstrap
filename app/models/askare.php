@@ -6,8 +6,8 @@ class Askare extends BaseModel {
     public $id, $perheenjasen_id, $nimi, $tarkeys, $lisatty, $valmis, $muuta;
 
     //Konstruktori
-    public function _construct($attributes) {
-        parent::_construct($attributes);
+    public function __construct($attributes) {
+        parent::__construct($attributes);
         $this->validators = array(
             'validate_nimi', 
             'validate_tarkeys',
@@ -115,6 +115,7 @@ class Askare extends BaseModel {
         if(is_numeric($this->tarkeys)&&($this->tarkeys < 1 || $this->tarkeys > 5)){
             $errors[]='Tärkeysasteen tulee olla välillä 1-5';
         }
+        return $errors;
     }
     
     public function validate_muuta() {

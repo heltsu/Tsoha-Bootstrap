@@ -7,14 +7,13 @@
 </div>
 {% endif %}
 
-{% for askare in askareet 
+{% for askare in askareet %}
+{% import "macros/forms.html" as forms %}
 <h2>{{askare.nimi}}</h2>
 
 <p>
-<form method="post" action="{{base_path}}/askare/{{askare.id}}/destroy" style="display: inline-block;">
-    <button type="submit" class="btn btn-danger">Poista</button>
-</form>
-<a href="{{base_path}}/askare/{{askare.id}}/muokkaa" class="btn btn-default">Muokkaa</a>
+    {{forms.destroy_button()}}
+<a href="{{base_path}}/askare/{{askare.id}}/edit" class="btn btn-default">Muokkaa</a>
 </p>
 
 <ul>

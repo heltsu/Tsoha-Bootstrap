@@ -7,6 +7,11 @@ class AskareController extends BaseController {
         $askareet = Askare::all(BaseController::get_user_logged_in()->id);
         View::make('askare/index.html', array('askareet' => $askareet));
     }
+    
+    public static function muokkaa($id){
+        $askare = Askare::find($id);
+        View::make('askare/edit.html', array('attributes' => $askare,));
+    }
 
     public static function show($id) {
         self::check_logged_in();
@@ -22,13 +27,15 @@ class AskareController extends BaseController {
     public static function store() {
         self::check_logged_in();
         $params = $_POST;
-        $askare = new Askare(array(
+        
+        $attributes = array(
             'nimi' => $params['nimi'],
             'tarkeys' => $params['tarkeys'],
             'valmis' => $params['valmis'],
             'muuta' => $params['muuta']
-        ));
-
+        );
+        
+        $askare = new Askare($attributes);
         $errors = $askare->errors();
 
         if (count($errors) == 0) {
@@ -43,19 +50,20 @@ class AskareController extends BaseController {
     public static function edit($id) {
         self::check_logged_in();
         $askare = Askare::find($id);
-        view::make('askare/edit.html', array('attributes' => $askare));
+        View::make('askare/edit.html', array('attributes' => $askare));
     }
 
     public static function update($id) {
         self::check_logged_in();
-        $params = $POST;
-
-        $askare = new Askare(array(
+        $params = $_POST;
+        $attributes = array(
             'nimi' => $params['nimi'],
             'tarkeys' => $params['tarkeys'],
             'valmis' => $params['valmis'],
             'muuta' => $params['muuta']
-        ));
+        );
+        
+        $askare = new Askare($attributes);
         $errors = $askare->errors();
         
         if (count($errors) > 0) {
@@ -72,7 +80,7 @@ class AskareController extends BaseController {
         $askare = new Askare(array());
         $askare->destroy($id);
 
-        Redirect::to('/askare', array('message' => 'Askare poistettu onnistuneesti!'));
+        Redirect::to('/askare/', array('message' => 'Askare poistettu onnistuneesti!'));
     }
 
 }

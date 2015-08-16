@@ -15,24 +15,24 @@
 
 {% for attribute in attributes %}
 
-<h1>Muokkaa askaretta {{attribute.nimi}}</h1>
+<h1>Muokkaa askaretta {{askare.nimi}}</h1>
 
-<form method="post" action="{{base_path}}/askare/{{attribute.id}}/muokkaa">
+<form method="post" action="{{base_path}}/askare/{{askare.id}}/muokkaa">
     <div class="form-group">    
         <label>Nimi</label>
-        <input name="nimi" type="text" class="form-control" value="{{attribute.nimi}}">
+        <input name="nimi" type="text" class="form-control" value="{{askare.nimi}}">
     </div>
     <div class="form-group">
         <label>Tärkeys (1-5)</label>
-        <input name="tarkeys" type="text" class="form-control" value="{{attribute.tarkeys}}">
+        <input name="tarkeys" type="text" class="form-control" value="{{askare.tarkeys}}">
     </div>
     <div class="form-group">
         <label>Valmis</label>
-        <input name="Valmis" type="text" class="form-control" value="{{attribute.valmis}}">
+        <input name="Valmis" type="text" class="form-control" value="{{askare.valmis}}">
     </div>
     <div class="form-group">
         <label>Lisätietoa</label>
-        <textarea name="muuta" class="form-control">{{attribute.muuta}}</textarea>
+        <textarea name="muuta" class="form-control">{{askare.muuta}}</textarea>
     </div>
     <br>
     <div class="form-group">

@@ -24,12 +24,16 @@ $routes->get('/askare/new', function() {
     AskareController::create();
 });
 
+$routes->post('/askare/new', function() {
+    AskareController::store();
+});
+
 $routes->get('/askare/:id', function($id) {
-    AskareController::show($id);
+    AskareController::muokkaa($id);
 });
 
 $routes->get('/askare/:id/edit', function($id) {
-    AskareController::edit();
+    AskareController::edit($id);
 });
 
 $routes->post('/askare/:id/edit', function($id){

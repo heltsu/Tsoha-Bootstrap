@@ -10,11 +10,13 @@ class HelloWorldController extends BaseController{
     }
 
     public static function sandbox(){
-        $soita = new Askare(array(
-                'nimi' => 'nimi',
+        $askare = new Askare(array(
+            'nimi' => 'soita',
             'tarkeys' => '6',
+            'valmis' => '17.8.2015',
+            'muuta' => 'soita'
             ));
-        $errors = $soita->errors();
+        $errors = $askare->errors();
         
         Kint::dump($errors);
     }
