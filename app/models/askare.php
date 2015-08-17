@@ -76,7 +76,7 @@ class Askare extends BaseModel {
         $this->id = $id;
         $query = DB::connection()->prepare('UPDATE Askare SET 
                  nimi = :nimi, 
-                tärkeys = :tarkeys, 
+                tarkeys = :tarkeys, 
                 valmis = :valmis, 
                 muuta = :muuta
                 WHERE id = :id');

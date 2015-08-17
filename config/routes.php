@@ -4,12 +4,12 @@ function check_logged_in(){
     BaseController::check_logged_in();
 }
 
-$routes->get('/', function() {
-    AskareController::index();
-});
-
 $routes->get('/hiekkalaatikko', function() {
     HelloWorldController::sandbox();
+});
+
+$routes->get('/', function() {
+    AskareController::index();
 });
 
 $routes->get('/askare', function() {
@@ -24,12 +24,8 @@ $routes->get('/askare/new', function() {
     AskareController::create();
 });
 
-$routes->post('/askare/new', function() {
-    AskareController::store();
-});
-
 $routes->get('/askare/:id', function($id) {
-    AskareController::muokkaa($id);
+    AskareController::show($id);
 });
 
 $routes->get('/askare/:id/edit', function($id) {
@@ -38,6 +34,10 @@ $routes->get('/askare/:id/edit', function($id) {
 
 $routes->post('/askare/:id/edit', function($id){
     AskareController::update($id);
+});
+
+$routes->post('/askare/new', function() {
+    AskareController::store();
 });
 
 $routes->post('/askare/:id/destroy', function($id){

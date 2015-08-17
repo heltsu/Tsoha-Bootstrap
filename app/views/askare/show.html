@@ -7,15 +7,16 @@
 </div>
 {% endif %}
 
-{% for askare in askareet %}
-{% import "macros/forms.html" as forms %}
 <h2>{{askare.nimi}}</h2>
 
-<p>
-    {{forms.destroy_button()}}
-<a href="{{base_path}}/askare/{{askare.id}}/edit" class="btn btn-default">Muokkaa</a>
-</p>
+{% if user_logged_in %}
 
+<form method="post" action="{{base_path}}/askare{{askare.id}}/destroy" style="display: inline-block;">
+    <button type="submit" class="btn btn-danger">Poista</button>
+    
+<a href="{{base_path}}/askare/{{askare.id}}/edit" class="btn btn-default">Muokkaa</a>
+
+{% endif %}
 <ul>
     <li><strong>Tärkeys:</strong> {{askare.tarkeys}}</li>
     <li><strong>Lisätty:</strong> {{askare.lisatty}}</li>
@@ -26,5 +27,4 @@
     {{askare.muuta}}
 </p>
 
-{% endfor %}
 {% endblock %}

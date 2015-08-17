@@ -7,15 +7,11 @@ class AskareController extends BaseController {
         $askareet = Askare::all(BaseController::get_user_logged_in()->id);
         View::make('askare/index.html', array('askareet' => $askareet));
     }
-    
-    public static function muokkaa($id){
-        $askare = Askare::find($id);
-        View::make('askare/edit.html', array('attributes' => $askare,));
-    }
 
     public static function show($id) {
         self::check_logged_in();
         $askare = Askare::find($id);
+        Kint::dump($askare);
         View::make('askare/show.html', array('askare' => $askare));
     }
 
@@ -77,7 +73,7 @@ class AskareController extends BaseController {
 
     public static function destroy($id) {
         self::check_logged_in();
-        $askare = new Askare(array());
+        $askare = new Askare(array('id' => $id));
         $askare->destroy($id);
 
         Redirect::to('/askare/', array('message' => 'Askare poistettu onnistuneesti!'));
