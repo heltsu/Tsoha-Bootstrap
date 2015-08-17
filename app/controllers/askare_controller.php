@@ -39,9 +39,7 @@ class AskareController extends BaseController {
 
             Redirect::to('/askare/' . $askare->id, array('message' => 'Askare lisätty'));
         } else {
-            $testi = array('errors' => $errors, 'attributes' => $askare);
-            Kint::dump($testi);
-            View::make('askare/new.html', $testi );
+            View::make('askare/new.html', array('errors' => $errors, 'attributes' => $askare));
         }
     }
 
@@ -69,7 +67,7 @@ class AskareController extends BaseController {
         } else {
             $askare->update($id);
 
-            Redirect::to('askare/' . $askare->id, array('message' => 'Askareen muokkaus onnistui!'));
+            Redirect::to('/askare/' . $askare->id, array('message' => 'Askareen muokkaus onnistui!'));
         }
     }
 
@@ -78,7 +76,7 @@ class AskareController extends BaseController {
         $askare = new Askare(array('id' => $id));
         $askare->destroy($id);
 
-        Redirect::to('/askare/', array('message' => 'Askare poistettu onnistuneesti!'));
+        Redirect::to('/askare', array('message' => 'Askare poistettu onnistuneesti!'));
     }
 
 }
