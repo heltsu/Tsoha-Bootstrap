@@ -47,6 +47,8 @@ class Askare extends BaseModel {
                 'valmis' => $row['valmis'],
                 'muuta'  => $row['muuta']
             ));
+            $askare->valmis = date('d.m.Y', strtotime($askare->valmis)); 
+            Kint::dump($askare);
             return $askare;
         }
         return null;
@@ -72,12 +74,13 @@ class Askare extends BaseModel {
            'id' => $id));
     }
         
-    public function update(){
+    public function update($id){
+        $this->id = $id;  
         $query = DB::connection()->prepare('UPDATE Askare SET 
-                 nimi = :nimi, 
+                nimi = :nimi, 
                 tarkeys = :tarkeys, 
                 valmis = :valmis, 
-                muuta = :muuta
+                 muuta = :muuta
                 WHERE id = :id');
         
         $query->execute(array(
@@ -85,7 +88,7 @@ class Askare extends BaseModel {
             'nimi' => $this->nimi, 
             'tarkeys' => $this->tarkeys, 
             'valmis' => $this->valmis, 
-            'muuta' => $this.muuta));
+            'muuta' => $this->muuta));
         
     }
 

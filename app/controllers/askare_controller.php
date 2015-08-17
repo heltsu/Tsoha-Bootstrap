@@ -52,12 +52,16 @@ class AskareController extends BaseController {
     public static function update($id) {
         self::check_logged_in();
         $params = $_POST;
-        $attributes = array(
+//        Kint::dump($params);
+          
+       $attributes = array(
             'nimi' => $params['nimi'],
             'tarkeys' => $params['tarkeys'],
             'valmis' => $params['valmis'],
             'muuta' => $params['muuta']
         );
+//        Kint::dump($attributes);
+
         
         $askare = new Askare($attributes);
         $errors = $askare->errors();
@@ -66,7 +70,7 @@ class AskareController extends BaseController {
             View::make('askare/edit.html', array('errors' => $errors, 'attributes' => $askare));
         } else {
             $askare->update($id);
-
+ //           Kint::dump($askare);
             Redirect::to('/askare/' . $askare->id, array('message' => 'Askareen muokkaus onnistui!'));
         }
     }
