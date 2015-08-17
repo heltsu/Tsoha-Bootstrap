@@ -72,8 +72,7 @@ class Askare extends BaseModel {
            'id' => $id));
     }
         
-    public function update($id){
-        $this->id = $id;
+    public function update(){
         $query = DB::connection()->prepare('UPDATE Askare SET 
                  nimi = :nimi, 
                 tarkeys = :tarkeys, 
