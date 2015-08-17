@@ -39,7 +39,9 @@ class AskareController extends BaseController {
 
             Redirect::to('/askare/' . $askare->id, array('message' => 'Askare lisätty'));
         } else {
-            View::make('askare/new.html', array('errors' => $errors, 'attributes' => $askare));
+            $testi = array('errors' => $errors, 'attributes' => $askare);
+            Kint::dump($testi);
+            View::make('askare/new.html', $testi );
         }
     }
 
