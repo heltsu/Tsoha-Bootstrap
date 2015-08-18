@@ -11,6 +11,7 @@ class Askare extends BaseModel {
         $this->validators = array(
             'validate_nimi', 
             'validate_tarkeys',
+ //           'validate_valmis',
             'validate_muuta');
     }
 
@@ -80,7 +81,7 @@ class Askare extends BaseModel {
                 nimi = :nimi, 
                 tarkeys = :tarkeys, 
                 valmis = :valmis, 
-                 muuta = :muuta
+                muuta = :muuta
                 WHERE id = :id');
         
         $query->execute(array(
@@ -131,4 +132,11 @@ class Askare extends BaseModel {
         return $errors;
     }
 
+    public function validate_valmis() {
+        $errors = array();
+        if ($this->valmis != ('d.m.y')){
+            $errors[] = 'Virheellinen päivämäärä';
+        }
+        return $errors;
+    }
 }
