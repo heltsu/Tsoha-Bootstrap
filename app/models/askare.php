@@ -48,7 +48,7 @@ class Askare extends BaseModel {
                 'muuta'  => $row['muuta']
             ));
             $askare->valmis = date('d.m.Y', strtotime($askare->valmis)); 
-            Kint::dump($askare);
+    //        Kint::dump($askare);
             return $askare;
         }
         return null;

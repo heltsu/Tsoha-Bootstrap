@@ -11,7 +11,7 @@ class AskareController extends BaseController {
     public static function show($id) {
         self::check_logged_in();
         $askare = Askare::find($id);
-        Kint::dump($askare);
+ //       Kint::dump($askare);
         View::make('askare/show.html', array('askare' => $askare));
     }
 
