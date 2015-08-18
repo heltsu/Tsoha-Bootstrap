@@ -27,6 +27,12 @@ Askareen muokkaus
 http://hniemima.users.cs.helsinki.fi/muistilista/askareet/2
 
 
+Kirjautuminen:
+
+Nimi: Tytti
+Salasana: Tytti123
+
+
 
 
 
