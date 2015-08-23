@@ -24,10 +24,10 @@ class AskareController extends BaseController {
         self::check_logged_in();
         $params = $_POST;
         
-        $luokka = $params['luokka'];
+  //      $luokka = $params['luokka'];
         
         $attributes = array(
-            'luokka' => $luokka,
+  //          'luokka' => $luokka,
             'nimi' => $params['nimi'],
             'tarkeys' => $params['tarkeys'],
             'valmis' => $params['valmis'],
@@ -56,11 +56,11 @@ class AskareController extends BaseController {
         self::check_logged_in();
         $params = $_POST;
  //       Kint::dump($params);
-        $luokka = $params['luokka'];
+  //      $luokka = $params['luokka'];
           
        $attributes = array(
            'id' => $id,
-           'luokka' => $luokka,
+  //         'luokka' => $luokka,
            'nimi' => $params['nimi'],
             'tarkeys' => $params['tarkeys'],
             'valmis' => $params['valmis'],
