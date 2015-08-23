@@ -58,7 +58,7 @@ class Luokka extends BaseModel {
     }
         
     public function destroy($id){
-       $query = DB::connection()->prepare('DELETE FROM Askare WHERE id = :id');
+       $query = DB::connection()->prepare('DELETE FROM Luokka WHERE id = :id');
        $query->execute(array(
            'id' => $id));
     

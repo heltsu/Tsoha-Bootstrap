@@ -66,7 +66,7 @@ $routes->get('/', function() {
     LuokkaController::index();
 });
 
-$routes->get('/askare', function() {
+$routes->get('/luokka', function() {
     LuokkaController::index();
 });
 
@@ -88,6 +88,10 @@ $routes->get('/luokka/:id', function ($id){
 
 $routes->post('/luokka/:id/destroy', function ($id) {
     LuokkaController::destroy($id);    
+});
+
+$routes->get('/luokka/:id/edit', function ($id){
+LuokkaController::edit($id);
 });
 
 $routes->post('/luokka/:id/edit', function($id) {
