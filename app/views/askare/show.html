@@ -11,7 +11,7 @@
 
 {% if user_logged_in %}
 
-<form method="post" action="{{base_path}}/askare/{{askare.id}}/destroy" style="display: inline-block;">
+<form method="post" action="{{base_path}}/askare/{{askare.id}}/destroy" class="destroy-form" data-confirm="Haluatko varmasti poistaa askareen?">
     <button type="submit" class="btn btn-danger">Poista</button>
     
 <a href="{{base_path}}/askare/{{askare.id}}/edit" class="btn btn-default">Muokkaa</a>
