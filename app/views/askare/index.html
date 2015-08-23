@@ -33,8 +33,8 @@
             <td><a href="{{base_path}}/askare/{{askare.id}}">{{askare.nimi}}</a></td>
 
             <td>{{askare.tarkeys}}</td>
-            <td>{{askare.lisatty}}</td>
-            <td>{{askare.valmis}}</td>
+            <td>{{askare.lisatty|date('d.m.Y')}}</td>
+            <td>{{askare.valmis|date('d.m.Y')}}</td>
             <td><a class="btn btn-default btn-sm" href='{{base_path}}/askare/{{askare.id}}/edit'>Muokkaa</a></td>          
         </tr>
         {% endfor %} 

@@ -99,7 +99,7 @@ class Askare extends BaseModel {
             $errors[] = 'Askare puuttuu!';
         }
         if (strlen($this->nimi) < 3) {
-            $errors[] = 'Askareen nimen pituuden pitää olla vähintään kolme merkkiä!';
+            $errors[] = 'Askareen nimen pituuden tulee olla vähintään kolme merkkiä!';
         }
         if (strlen($this->nimi) > 20){
             $errors[] = 'Askareen nimen pituuden on oltava alle 20 merkkiä!';
@@ -134,7 +134,7 @@ class Askare extends BaseModel {
 
     public function validate_valmis() {
         $errors = array();
-        if ($this->valmis != ('d.m.y')){
+        if ($this->valmis != date('d.m.Y')){
             $errors[] = 'Virheellinen päivämäärä';
         }
         return $errors;

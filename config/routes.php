@@ -8,6 +8,8 @@ $routes->get('/hiekkalaatikko', function() {
     HelloWorldController::sandbox();
 });
 
+//AskareControllerit
+
 $routes->get('/', function() {
     AskareController::index();
 });
@@ -44,6 +46,8 @@ $routes->post('/askare/:id/destroy', function($id){
     AskareController::destroy($id);
 });
 
+//UserControllerit
+
 $routes->get('/login', function() {
     UserController::login();
 });
@@ -55,4 +59,39 @@ $routes->post('/login', function(){
 $routes->post('/logout', function(){
     UserController::logout();
 });
+
+//LuokkaControllerit
+
+$routes->get('/', function() {
+    LuokkaController::index();
+});
+
+$routes->get('/askare', function() {
+    LuokkaController::index();
+});
+
+$routes->post('/luokka', function() {
+    LuokkaController::store();
+});
+
+$routes->get('/luokka/new', function() {
+    LuokkaController::create();
+});
+
+$routes->post('/luokka/new', function() {
+    LuokkaController::store();
+});
+
+$routes->get('/luokka/:id', function ($id){
+    LuokkaController::show($id);
+});
+
+$routes->post('/luokka/:id/destroy', function ($id) {
+    LuokkaController::destroy($id);    
+});
+
+$routes->post('/luokka/:id/edit', function($id) {
+    LuokkaController::update($id);
+});
+
 
