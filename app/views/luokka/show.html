@@ -11,10 +11,11 @@
 
 {% if user_logged_in %}
 
-<form method="post" action="{{base_path}}/luokka/{{luokka.id}}/destroy" style="display: inline-block;">
+<form method="post" action="{{base_path}}/luokka/{{luokka.id}}/destroy" class="destroy-form" data-confirm="Haluatko varmasti poistaa luokan?">
     <button type="submit" class="btn btn-danger">Poista</button>
     
 <a href="{{base_path}}/luokka/{{luokka.id}}/edit" class="btn btn-default">Muokkaa</a>
+</form>
 
 {% endif %}
 {% endblock %}

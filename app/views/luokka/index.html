@@ -7,7 +7,9 @@
 </div>
 {% endif %}
 
-<h1>Luokat</h1>
+{% if user_logged_in %}
+<h1>Käyttäjän {{user_logged_in.nimi}} luokat</h1>
+
 
 <p> 
     <a href="{{base_path}}/luokka/new" class="btn btn-default">Lisää luokka</a>
@@ -29,4 +31,5 @@
         {% endfor %} 
     </tbody>
 </table>
+{% endif %}
 {% endblock%}

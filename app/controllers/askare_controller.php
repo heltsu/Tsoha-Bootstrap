@@ -11,7 +11,7 @@ class AskareController extends BaseController {
     public static function show($id) {
         self::check_logged_in();
         $askare = Askare::find($id);
- //       Kint::dump($askare);
+//       Kint::dump($askare);
         View::make('askare/show.html', array('askare' => $askare));
     }
 
@@ -23,17 +23,17 @@ class AskareController extends BaseController {
     public static function store() {
         self::check_logged_in();
         $params = $_POST;
-        
-  //      $luokka = $params['luokka'];
-        
+
+//      $luokka = $params['luokka'];
+
         $attributes = array(
-  //          'luokka' => $luokka,
+//          'luokka' => $luokka,
             'nimi' => $params['nimi'],
             'tarkeys' => $params['tarkeys'],
             'valmis' => $params['valmis'],
-            'muuta' => $params['muuta']
+            'muuta' => $params['muuta'],
         );
-        
+
         $askare = new Askare($attributes);
         $errors = $askare->errors();
 
@@ -55,28 +55,23 @@ class AskareController extends BaseController {
     public static function update($id) {
         self::check_logged_in();
         $params = $_POST;
- //       Kint::dump($params);
-  //      $luokka = $params['luokka'];
-          
-       $attributes = array(
-           'id' => $id,
-  //         'luokka' => $luokka,
-           'nimi' => $params['nimi'],
+//       Kint::dump($params);
+        $attributes = array(
+            'id' => $id,
+            'nimi' => $params['nimi'],
             'tarkeys' => $params['tarkeys'],
             'valmis' => $params['valmis'],
             'muuta' => $params['muuta']
         );
 //        Kint::dump($attributes);
-
-        
         $askare = new Askare($attributes);
         $errors = $askare->errors();
-        
+
         if (count($errors) > 0) {
             View::make('askare/edit.html', array('errors' => $errors, 'attributes' => $askare));
         } else {
             $askare->update($id);
- //          Kint::dump($askare);
+//          Kint::dump($askare);
             Redirect::to('/askare/' . $askare->id, array('message' => 'Askareen muokkaus onnistui!'));
         }
     }

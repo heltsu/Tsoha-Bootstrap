@@ -3,6 +3,7 @@
 class LuokkaController extends BaseController {
 
     public static function index() {
+        self::check_logged_in();
         $luokat = Luokka::all();
         View::make('luokka/index.html', array('luokat' => $luokat));
     }
@@ -10,7 +11,7 @@ class LuokkaController extends BaseController {
     public static function show($id) {
         self::check_logged_in();
         $luokka = Luokka::find($id);
-        Kint::dump($luokka);
+ //       Kint::dump($luokka);
         View::make('luokka/show.html', array('luokka' => $luokka));
     }
 

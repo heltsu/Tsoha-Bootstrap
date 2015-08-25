@@ -12,7 +12,7 @@ class UserController extends BaseController{
         $user = PerheenJasen::authenticate($params['nimi'], $params['salasana']);
         
         if(!$user){
-            View::make('user/login.html', array('error'=> 'Väärä käyttäjätunnus tai salasana', 'username' => $params['username']));
+            View::make('user/login.html', array('error'=> 'Väärä käyttäjätunnus tai salasana', 'username' => $params['nimi']));
         }else{
             $_SESSION['user'] = $user->id;
             
