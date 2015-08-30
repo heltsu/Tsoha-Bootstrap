@@ -3,7 +3,7 @@
 class AskareController extends BaseController {
 
     public static function index() {
-        self::check_logged_in();
+        self::check_logged_in();;
         $askareet = Askare::all(BaseController::get_user_logged_in()->id);
         View::make('askare/index.html', array('askareet' => $askareet));
     }

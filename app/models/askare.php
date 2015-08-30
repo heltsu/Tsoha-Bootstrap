@@ -11,13 +11,13 @@ class Askare extends BaseModel {
         $this->validators = array(
             'validate_nimi', 
             'validate_tarkeys',
- //           'validate_valmis',
+            'validate_valmis',
             'validate_muuta');
     }
 
-    public static function all() {
-        $query = DB::connection()->prepare('SELECT * FROM Askare');
-        $query->execute();
+    public static function all($id) {
+        $query = DB::connection()->prepare('SELECT * FROM Askare WHERE perheenjasen_id = :id');
+        $query->execute(array('id' => $id));
         $rows = $query->fetchAll();
         $askareet = array();
         foreach ($rows as $row) {
@@ -42,6 +42,7 @@ class Askare extends BaseModel {
         if ($row) {
             $askare = new Askare(array(
                 'id' => $row['id'],
+                'perheenjasen_id' => $row['perheenjasen_id'],
                 'nimi' => $row['nimi'],
                 'tarkeys' => $row['tarkeys'],
                 'lisatty' => $row['lisatty'],
@@ -57,15 +58,17 @@ class Askare extends BaseModel {
 
     public function save() {
         $query = DB::connection()->prepare
-                ('INSERT INTO Askare (nimi, tarkeys, lisatty, valmis, muuta)VALUES(:nimi, :tarkeys, NOW(), :valmis, :muuta)RETURNING id');
+                ('INSERT INTO Askare (perheenjasen_id, nimi, tarkeys, lisatty, valmis, muuta)VALUES(:perheenjasen_id, :nimi, :tarkeys, NOW(), :valmis, :muuta)RETURNING id');
 
         $query->execute(array(
+            'perheenjasen_id' => BaseController::get_user_logged_in()->id,
             'nimi' => $this->nimi,
             'tarkeys' => $this->tarkeys,
             'valmis' => $this->valmis,
             'muuta' => $this->muuta
         ));
         $row = $query->fetch();
+        Kint::dump($row);
         $this->id = $row['id'];
     }
     
@@ -134,8 +137,11 @@ class Askare extends BaseModel {
 
     public function validate_valmis() {
         $errors = array();
-        if ($this->valmis != date('d.m.Y')){
-            $errors[] = 'Virheellinen päivämäärä';
+        if ($this->valmis == '' || $this->valmis == null){
+            $errors[] = 'Päivämäärä ei saa olla tyhjä!';
+        }
+        if (date('d.m.Y', strtotime($this->valmis)) != $this->valmis){
+            $errors[] = 'Virheellinen päivämäärä! (pp.kk.vvvv)';
         }
         return $errors;
     }
